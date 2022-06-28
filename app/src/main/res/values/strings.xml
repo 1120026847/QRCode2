@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="submit">提交</string>
+    <!--website-->
+    <string name="type_url">Website</string>
+    <string name="go_to_website">Go to website</string>
+
+    <string name="permission_dialog_message_CAMERA">该应用需要权限来进行扫描</string>
+    <string name="permission_dialog_message_STORAGE">该应用需要权限来进行存储</string>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_cannel">取消</string>
+</resources>

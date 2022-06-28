@@ -1,0 +1,9 @@
+https://blog.csdn.net/qq_38042345/article/details/84338398
+android setResult 是用于返回数据给上一个Activity的,也就是从新的Activity中返回数据给前一个Activity
+
+1. startActivityForResult(Intent intent,int i); 启动下一个Activity要传送到下一个Activity的数据封装到intent中，并规定下一个Activity必须返回一个值i；
+2. 运行下一个Activity，并返回int i；
+
+
+3 onActivityResult(int requestCode,int ResultCode,Intent data) 返回的i值此处传给requestCode,且只有当requestCode接受到的值是规定的i时此方法才能正确执行。
+
