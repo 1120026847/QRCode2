@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
        mPermissions=Permissions()
         requestMultiplePermissions()
-        binding.generate.setOnClickListener {
+        binding.ivGenerate.setOnClickListener {
             val intent = Intent(this@MainActivity, GenerateType::class.java)
             startActivity(intent)
         }
-        binding.scan.setOnClickListener {
+        binding.ivScan.setOnClickListener {
          Utility.scan(this)
         }
 
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun requestMultiplePermissions(){
-        var permissions: Array<String> = arrayOf( Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+        var permissions: Array<String> = arrayOf( Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE)
         val register = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             if (it[Manifest.permission.WRITE_EXTERNAL_STORAGE]!!) {// 同意
             } else {
@@ -51,6 +51,11 @@ class MainActivity : AppCompatActivity() {
 
             } else {
                 mPermissions.showReasonDialogCAMERA()
+            }
+
+            if (it[Manifest.permission.READ_EXTERNAL_STORAGE]!!){
+            }else{
+                mPermissions.showReasonDialogSTORAGE()
             }
         }
 

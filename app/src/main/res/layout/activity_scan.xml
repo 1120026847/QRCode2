@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ScanActivity">
+
     <com.journeyapps.barcodescanner.BarcodeView
         android:id="@+id/barcode_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <ImageView
+        android:id="@+id/xiangce"
+        android:layout_width="141dp"
+        android:layout_height="116dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:textAllCaps="false"
+        app:srcCompat="@drawable/xiangce" />
+
+    <ImageView
         android:id="@+id/img_flash"
-        android:layout_margin="16dp"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/flash_off"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="左下"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false"
+        app:srcCompat="@drawable/flash_off" />
 </RelativeLayout>

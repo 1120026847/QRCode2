@@ -14,9 +14,11 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.appcompat.app.ActionBar
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.example.myapplication.Utility.KEY_CONTENT
@@ -39,18 +41,20 @@ class WEB_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityWebBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
        val activity=WEB_Activity()
         //_______________________
-    binding.btnGenerateWebGenerate.setOnClickListener {
+    binding.ivGenerateWebSubmit.setOnClickListener {
         val strURL = generateURLString(binding.GenerateWebEdittext.text.toString())
         mQRBitmap = Utility.generateQR(strURL)
         if (mQRBitmap != null) {
             mTextInput = binding.GenerateWebEdittext.text.toString()
             binding.imgGenerateWeb.setImageBitmap(mQRBitmap)
-            binding.btnGenerateWebSave.visibility = View.VISIBLE
+            binding.ivGenerateWebSave.visibility = View.VISIBLE
 
         } else {
-            binding.btnGenerateWebSave.visibility = View.INVISIBLE
+            binding.ivGenerateWebSave.visibility = View.INVISIBLE
             binding.imgGenerateWeb.setImageBitmap(null)
             mQRBitmap = null
         }
@@ -62,7 +66,7 @@ class WEB_Activity : AppCompatActivity() {
 
 
 
-        binding.btnGenerateWebSave.setOnClickListener {
+        binding.ivGenerateWebSave.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 if (checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != PackageManager.PERMISSION_GRANTED){
                     val strings = Array<String>(1) { "android.permission.WRITE_EXTERNAL_STORAGE" }
@@ -222,5 +226,13 @@ class WEB_Activity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, uri) //打开浏览器
             startActivity(intent)
         }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId==android.R.id.home){
+//            val intent=Intent(this,MainActivity::class.java)
+//            startActivity(intent)
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

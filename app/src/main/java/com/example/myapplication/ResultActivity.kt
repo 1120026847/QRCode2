@@ -5,7 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import com.example.myapplication.Utility.KEY_RESULT
 import com.example.myapplication.databinding.ActivityResultBinding
 
@@ -15,6 +17,8 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
         binding.textTextString.text=""
         binding.textUrlString.text=""
         val prefs = getSharedPreferences("data", Context.MODE_PRIVATE)
@@ -25,7 +29,7 @@ class ResultActivity : AppCompatActivity() {
         //binding.text_url_string.text = QRCode_WEB
         val bundle = intent.extras
         bundle?.getString(KEY_RESULT)?.let { pareInfo(it) }
-binding.btnUrl.setOnClickListener {
+binding.ivUrl.setOnClickListener {
     if (!binding.textUrlString.text.equals("")){
         val intent = Intent()
         intent.action = Intent.ACTION_VIEW
@@ -45,7 +49,7 @@ binding.btnUrl.setOnClickListener {
     }
     private fun getWebsite(resultString: String) {
       binding.textUrlString.text=resultString
-        binding.btnUrl.setOnClickListener {
+        binding.ivUrl.setOnClickListener {
             val intent = Intent()
             intent.action = Intent.ACTION_VIEW
             intent.data = Uri.parse(resultString)
@@ -55,5 +59,12 @@ binding.btnUrl.setOnClickListener {
     private fun getTextType(resultString: String) {
         binding.textTextString.text = resultString
     }
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId==android.R.id.home){
+//            val intent=Intent(this,MainActivity::class.java)
+//            startActivity(intent)
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

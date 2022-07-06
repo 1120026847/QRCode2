@@ -13,38 +13,38 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="64dp"
         android:ems="10"
+        android:hint="请输入要生成的文字"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_Generate_text_generate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="156dp"
-        android:text="生成"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/img_generate_text"
-        android:layout_width="218dp"
-        android:layout_height="201dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="256dp"
+        android:layout_width="242dp"
+        android:layout_height="232dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="268dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/btn_Generate_text_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="520dp"
-        android:text="保存"
+    <ImageView
+        android:id="@+id/iv_Generate_text_save"
+        android:layout_width="113dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="524dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_save" />
+
+    <ImageView
+        android:id="@+id/iv_Generate_text_submit"
+        android:layout_width="98dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_text_submit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

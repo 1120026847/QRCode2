@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">二维码</string>
     <string name="submit">提交</string>
     <!--website-->
     <string name="type_url">Website</string>

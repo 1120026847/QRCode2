@@ -6,23 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/scan"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="148dp"
-        android:text="扫描"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="400dp"
+        android:text="生成"
+        android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/generate"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="344dp"
+        android:background="@drawable/dotted_line_view"
+        android:layerType="software"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_scan"
+        android:layout_width="124dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="168dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_scan" />
+
+    <ImageView
+        android:id="@+id/iv_generate"
+        android:layout_width="142dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="488dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_qrcode" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="284dp"
-        android:text="生成"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="68dp"
+        android:text="扫描"
+        android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
