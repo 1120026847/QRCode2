@@ -23,6 +23,6 @@ interface  WordService {
   ]
 }
      */
-    @GET("main/webUrl.json")
+    @GET("git/raw/master/WebUri.json")
     suspend fun getWords(): Response<Words>
 }

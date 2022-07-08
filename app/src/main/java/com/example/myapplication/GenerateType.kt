@@ -140,23 +140,23 @@ binding.ivRandomQrcode.setOnLongClickListener {
         } catch (e: FormatException) {
             e.printStackTrace()
         }
-        val editor = getSharedPreferences("data", Context.MODE_PRIVATE).edit()
-        //向SharedPreferences.Editor对象中添加数据
-        editor.putString("QRCode_WEB",re!!.text)
-        //调用apply()方法将添加的数据提交，从而完成数据存储操作
-        editor.apply()
-        val intent=Intent(this,ResultActivity::class.java)
-        startActivity(intent)
-        //Toast出内容
-        //  Toast.makeText(this@MainActivity, re!!.text, Toast.LENGTH_SHORT).show()
-        Log.e(TAG, re!!.text, )
+//        val editor = getSharedPreferences("data", Context.MODE_PRIVATE).edit()
+//        //向SharedPreferences.Editor对象中添加数据
+//        editor.putString("QRCode_WEB",re!!.text)
+//        //调用apply()方法将添加的数据提交，从而完成数据存储操作
+//        editor.apply()
+//        val intent=Intent(this,ResultActivity::class.java)
+//        startActivity(intent)
+//        //Toast出内容
+//        //  Toast.makeText(this@MainActivity, re!!.text, Toast.LENGTH_SHORT).show()
+//        Log.e(TAG, re!!.text, )
         //利用正则表达式判断内容是否是URL，是的话则打开网页
         val regex = ("(((https|http)?://)?([a-z0-9]+[.])|(www.))"
                 + "\\w+[.|\\/]([a-z0-9]{0,})?[[.]([a-z0-9]{0,})]+((/[\\S&&[^,;\u4E00-\u9FA5]]+)+)?([.][a-z0-9]{0,}+|/?)") //设置正则表达式
         val pat = Pattern.compile(regex.trim { it <= ' ' }) //比对
-        val mat = pat.matcher(re.text.trim { it <= ' ' })
+        val mat = pat.matcher(re!!.text.trim { it <= ' ' })
         if (mat.matches()) {
-            val uri = Uri.parse(re.text)
+            val uri = Uri.parse(re?.text)
             val intent = Intent(Intent.ACTION_VIEW, uri) //打开浏览器
             startActivity(intent)
         }
